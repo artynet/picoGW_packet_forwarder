@@ -95,7 +95,7 @@ License: Revised BSD License, see LICENSE.TXT file include in the project
 #define STATUS_SIZE     200
 #define TX_BUFF_SIZE    ((540 * NB_PKT_MAX) + 30 + STATUS_SIZE)
 
-#define COM_PATH_DEFAULT "/dev/ttyACM0"
+#define COM_PATH_DEFAULT "/dev/ttyLORA"
 
 /* -------------------------------------------------------------------------- */
 /* --- PRIVATE TYPES -------------------------------------------------------- */
@@ -817,9 +817,9 @@ int main(int argc, char **argv) {
     const char *com_path = com_path_default;
 
     /* configuration file related */
-    char *global_cfg_path = "global_conf.json"; /* contain global (typ. network-wide) configuration */
-    char *local_cfg_path = "local_conf.json"; /* contain node specific configuration, overwrite global parameters for parameters that are defined in both */
-    char *debug_cfg_path = "debug_conf.json"; /* if present, all other configuration files are ignored */
+    char *global_cfg_path = "/etc/lora/global_conf.json"; /* contain global (typ. network-wide) configuration */
+    char *local_cfg_path = "/etc/lora/local_conf.json"; /* contain node specific configuration, overwrite global parameters for parameters that are defined in both */
+    char *debug_cfg_path = "/etc/lora/debug_conf.json"; /* if present, all other configuration files are ignored */
 
     /* threads */
     pthread_t thrid_up;
